@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+/* ===== Paper texture background ===== */
+.paper-bg {
+  background-color: #f5f0e8;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #f5f0e8 0%, #ebe4d5 25%, #f2ece0 50%, #e8e0d0 75%, #f5f0e8 100%);
+  position: relative;
+}
+
+.paper-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0,0,0,0.02) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(0,0,0,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(0,0,0,0.02) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== Sketchy / hand-drawn button style ===== */
+.sketchy-btn {
+  position: relative;
+  background: white;
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 28px;
+  cursor: pointer;
+  font-family: 'Chilanka', cursive;
+  font-size: 1.1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sketchy-btn::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2.5px solid #1a1a1a;
+  border-radius: 2px 4px 3px 5px;
+  clip-path: polygon(
+    0% 2%, 3% 0%, 8% 1%, 15% 0%, 22% 2%, 30% 0%, 38% 1%, 45% 0%,
+    52% 2%, 60% 0%, 68% 1%, 75% 0%, 82% 2%, 90% 0%, 95% 1%, 100% 0%,
+    100% 5%, 99% 15%, 100% 25%, 99% 35%, 100% 45%, 99% 55%, 100% 65%, 99% 75%, 100% 85%, 99% 95%, 100% 100%,
+    95% 100%, 85% 99%, 75% 100%, 65% 99%, 55% 100%, 45% 99%, 35% 100%, 25% 99%, 15% 100%, 5% 99%, 0% 100%,
+    0% 95%, 1% 85%, 0% 75%, 1% 65%, 0% 55%, 1% 45%, 0% 35%, 1% 25%, 0% 15%, 1% 5%
+  );
+}
+
+.sketchy-btn:hover {
+  transform: translateY(-2px) rotate(-0.5deg);
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+}
+
+.sketchy-btn:active {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+/* ===== Header nav button ===== */
+.nav-btn {
+  position: relative;
+  background: transparent;
+  color: #1a1a1a;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 1.15rem;
+  transition: transform 0.15s ease;
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 2px solid #1a1a1a;
+  border-radius: 3px 5px 2px 4px;
+  opacity: 0.7;
+  clip-path: polygon(
+    0% 3%, 5% 0%, 12% 2%, 20% 0%, 30% 1%, 40% 0%, 50% 2%, 60% 0%,
+    70% 1%, 80% 0%, 90% 2%, 95% 0%, 100% 3%,
+    100% 10%, 99% 30%, 100% 50%, 99% 70%, 100% 90%, 100% 97%,
+    95% 100%, 80% 99%, 60% 100%, 40% 99%, 20% 100%, 5% 99%, 0% 97%,
+    0% 90%, 1% 70%, 0% 50%, 1% 30%, 0% 10%
+  );
+}
+
+.nav-btn:hover {
+  transform: rotate(-1deg) scale(1.05);
+}
+
+.nav-btn.active::after {
+  border-width: 3px;
+  opacity: 1;
+}
+
+/* ===== Doodle decorations ===== */
+.doodle-star {
+  display: inline-block;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ===== Rainbow / Nyancat button ===== */
+.rainbow-btn {
+  position: relative;
+  padding: 14px 40px;
+  font-family: 'Chilanka', cursive;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(
+    124deg,
+    #ff2400, #e81d1d, #e8b71d, #e3e81d,
+    #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3,
+    #ff2400
+  );
+  background-size: 400% 400%;
+  animation: rainbow-flow 6s ease infinite;
+  border-radius: 4px 6px 3px 5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 1;
+}
+
+.rainbow-btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    124deg,
+    #ff2400, #e81d1d, #e8b71d, #e3e81d,
+    #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3,
+    #ff2400
+  );
+  background-size: 400% 400%;
+  animation: rainbow-flow 6s ease infinite;
+  border-radius: 6px 8px 5px 7px;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.rainbow-btn:hover {
+  transform: translateY(-3px) rotate(-0.5deg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.rainbow-btn:active {
+  transform: translateY(0px);
+}
+
+.rainbow-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes rainbow-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Typewriter cursor blink ===== */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink-cursor 0.6s step-end infinite;
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== Sketchy select / dropdown ===== */
+.sketchy-select {
+  appearance: none;
+  background: white;
+  border: 2px solid #1a1a1a;
+  border-radius: 3px 5px 2px 4px;
+  padding: 8px 32px 8px 12px;
+  font-family: 'Chilanka', cursive;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1a1a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: transform 0.1s ease;
+}
+
+.sketchy-select:focus {
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+/* ===== Markdown prose styling ===== */
+.prose-yoma h1,
+.prose-yoma h2,
+.prose-yoma h3,
+.prose-yoma h4 {
+  font-family: 'Chilanka', cursive;
+  color: #1a1a1a;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.prose-yoma h1 { font-size: 1.6rem; }
+.prose-yoma h2 { font-size: 1.35rem; }
+.prose-yoma h3 { font-size: 1.15rem; }
+.prose-yoma h4 { font-size: 1.05rem; }
+
+.prose-yoma p {
+  margin-bottom: 0.8em;
+  line-height: 1.85;
+}
+
+.prose-yoma strong {
+  font-weight: 700;
+  color: #111;
+}
+
+.prose-yoma em {
+  font-style: italic;
+}
+
+.prose-yoma ul,
+.prose-yoma ol {
+  margin: 0.6em 0;
+  padding-left: 1.5em;
+}
+
+.prose-yoma ul { list-style-type: disc; }
+.prose-yoma ol { list-style-type: decimal; }
+
+.prose-yoma li {
+  margin-bottom: 0.3em;
+  line-height: 1.7;
+}
+
+.prose-yoma blockquote {
+  border-left: 3px solid #a89b86;
+  padding-left: 1em;
+  margin: 1em 0;
+  color: #555;
+  font-style: italic;
+}
+
+.prose-yoma code {
+  background: rgba(0,0,0,0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.prose-yoma pre {
+  background: rgba(0,0,0,0.05);
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.prose-yoma hr {
+  border: none;
+  border-top: 2px dashed #c4b8a4;
+  margin: 1.5em 0;
+}
+
+.prose-yoma a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+}
+
+.prose-yoma a:hover {
+  color: #555;
+}
+
+/* ===== Scrollbar styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b8a4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a89b86;
+}
