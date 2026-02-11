@@ -7,8 +7,10 @@ Built with a unique **hand-drawn paper notebook** aesthetic.
 ## Features
 
 - **20 Flexible Settings** — Fine-tune your idea: genre, country, medium, character names, tone, era, conflict type, power system, and more
+- **Additional Details** — Free-text field for extra context: fanfiction source material, custom characters, lore, specific wishes, and more
+- **Fanfiction Support** — Mention any existing universe (anime, manga, book, game) and Yoma will craft an idea within that world
 - **AI-Powered Generation** — Supports Claude (Anthropic) and OpenRouter APIs
-- **Anti-Cliché System** — Crafted prompts with self-check validation ensure genuinely original ideas, not rehashed tropes
+- **Anti-Cliché System** — Crafted prompts with compliance plan and self-check validation ensure genuinely original ideas, not rehashed tropes
 - **Markdown Rendering** — AI responses are beautifully formatted with headings, lists, bold, and more
 - **Yoma Dialog** — A charming typewriter intro dialog (can be skipped or disabled in settings)
 - **Rainbow Create Button** — Nyancat-style animated gradient

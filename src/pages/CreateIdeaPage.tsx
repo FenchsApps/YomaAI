@@ -13,6 +13,7 @@ function getInitialPhase(): Phase {
 export default function CreateIdeaPage() {
   const [phase, setPhase] = useState<Phase>(getInitialPhase)
   const [selections, setSelections] = useState<Record<string, string>>({})
+  const [additionalDetails, setAdditionalDetails] = useState('')
   const [result, setResult] = useState('')
   const [error, setError] = useState('')
 
@@ -34,11 +35,25 @@ export default function CreateIdeaPage() {
       }
     }
 
-    if (parts.length === 0) {
+    const details = additionalDetails.trim()
+
+    if (parts.length === 0 && !details) {
       return 'Generate a completely original creative idea. Surprise me with something unique!'
     }
 
-    return `Create an original creative idea based on these preferences:\n\n${parts.join('\n')}\n\nRemember: Be original, avoid clichés. Create something truly unique and surprising!`
+    let prompt = 'Create an original creative idea based on these preferences:\n\n'
+
+    if (parts.length > 0) {
+      prompt += parts.join('\n') + '\n\n'
+    }
+
+    if (details) {
+      prompt += `Additional Details from the creator:\n${details}\n\n`
+    }
+
+    prompt += 'Remember: Be original, avoid clichés. Create something truly unique and surprising!'
+
+    return prompt
   }
 
   const handleGenerate = async () => {
@@ -71,6 +86,7 @@ export default function CreateIdeaPage() {
 
   const handleStartOver = () => {
     setSelections({})
+    setAdditionalDetails('')
     setResult('')
     setError('')
     setPhase('settings')
@@ -210,6 +226,31 @@ export default function CreateIdeaPage() {
               </select>
             </div>
           ))}
+        </div>
+
+        {/* Additional Details */}
+        <div className="mb-12">
+          <label
+            htmlFor="additional-details"
+            className="mb-2 block text-lg text-gray-900"
+            style={{ fontFamily: "'Chilanka', cursive" }}
+          >
+            Additional Details
+          </label>
+          <p
+            className="mb-3 text-sm text-gray-400"
+            style={{ fontFamily: "'Chilanka', cursive" }}
+          >
+            Anything extra you want Yoma to know — fanfiction source, specific characters, universe lore, plot twists, or any other wishes!
+          </p>
+          <textarea
+            id="additional-details"
+            value={additionalDetails}
+            onChange={(e) => setAdditionalDetails(e.target.value)}
+            placeholder="e.g. This is a fanfiction based on Naruto universe. I want the main character to be a rogue ninja from the Hidden Mist Village..."
+            className="sketchy-textarea"
+            rows={4}
+          />
         </div>
 
         {/* Create Button */}
