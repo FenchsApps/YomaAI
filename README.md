@@ -4,6 +4,8 @@
 
 Built with a unique **hand-drawn paper notebook** aesthetic.
 
+<img width="935" height="843" alt="image" src="https://github.com/user-attachments/assets/c5bfb834-5896-440b-820c-1d213fc30eb6" />
+
 ## Features
 
 - **20 Flexible Settings** — Fine-tune your idea: genre, country, medium, character names, tone, era, conflict type, power system, and more
