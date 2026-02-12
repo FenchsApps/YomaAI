@@ -18,6 +18,9 @@ Built with a unique **hand-drawn paper notebook** aesthetic.
 - **Rainbow Create Button** — Nyancat-style animated gradient
 - **Paper Aesthetic** — Hand-drawn style with sketchy buttons and crumpled paper background
 
+<img width="941" height="335" alt="image" src="https://github.com/user-attachments/assets/001a9349-69b4-4bb6-ab77-a0c143047b79" />
+
+
 ## Tech Stack
 
 | Layer    | Technology                     |
