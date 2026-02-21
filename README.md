@@ -103,13 +103,44 @@ YomaAI/
 │   ├── App.tsx                 # App routes
 │   ├── main.tsx                # Entry point
 │   └── index.css               # Global styles, paper theme, rainbow button
+├── tests/
+│   ├── conftest.py            # Pytest fixtures (desktop, mobile, tablet drivers)
+│   ├── test_yomaai.py         # Core tests (site load, settings, AI generation)
+│   ├── test_yomaai_extended.py # Extended tests (responsive, localStorage, errors, dialog)
+│   └── requirements.txt       # Python test dependencies
 ├── .env.example                # Environment variables template
 ├── index.html                  # HTML entry
 ├── vite.config.ts              # Vite config with Tailwind & proxy
 ├── package.json
+├── TESTS.md                    # Test documentation
 ├── LICENSE                     # AGPL-3.0
 └── README.md
 ```
+
+## Testing
+
+YomaAI includes **24 automated end-to-end tests** built with **pytest** and **Selenium** across two test files:
+
+| Suite | What it covers | Backend needed? |
+|-------|---------------|-----------------|
+| Site loading | Page renders, navigation, CTA button | No |
+| Settings | Skip dialog toggle on/off | No |
+| AI generation | Full Create → result flow (real API) | Yes |
+| Responsiveness | Mobile (375×812) & tablet (768×1024) viewports, overflow, font sizes | No |
+| localStorage | Persistence after reload, cleanup restores default | No |
+| Error handling | API error (500) & network failure messages | No (mocked) |
+| Result buttons | "Create Another Idea" reset & "Regenerate" re-generation | No (mocked) |
+| Yoma dialog | Next, Let's go!, Skip dialog buttons | No |
+
+See [TESTS.md](./TESTS.md) for full documentation.
+
+**Quick start:**
+
+```bash
+uv run --with pytest --with selenium pytest tests/ -v
+```
+
+> The app must be running (`npm run dev:full`) before you execute the tests.
 
 ## License
 
