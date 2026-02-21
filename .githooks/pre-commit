@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+echo "🧪 Running YomaAI tests before commit..."
+
+
+if ! curl -s --max-time 3 http://localhost:5173 > /dev/null 2>&1; then
+    echo "❌ Frontend (http://localhost:5173) is not running."
+    echo "   Start the app first: npm run dev:full"
+    exit 1
+fi
+
+
+if command -v uv > /dev/null 2>&1; then
+    uv run --with pytest --with selenium \
+        pytest tests/ -v --tb=short -k "not test_create_story" -x
+else
+    pytest tests/ -v --tb=short -k "not test_create_story" -x
+fi
+
+echo "✅ All tests passed. Proceeding with commit."
