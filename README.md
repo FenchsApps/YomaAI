@@ -4,6 +4,8 @@
 
 Built with a unique **hand-drawn paper notebook** aesthetic.
 
+<img width="935" height="843" alt="image" src="https://github.com/user-attachments/assets/c5bfb834-5896-440b-820c-1d213fc30eb6" />
+
 ## Features
 
 - **20 Flexible Settings** — Fine-tune your idea: genre, country, medium, character names, tone, era, conflict type, power system, and more
@@ -15,6 +17,9 @@ Built with a unique **hand-drawn paper notebook** aesthetic.
 - **Yoma Dialog** — A charming typewriter intro dialog (can be skipped or disabled in settings)
 - **Rainbow Create Button** — Nyancat-style animated gradient
 - **Paper Aesthetic** — Hand-drawn style with sketchy buttons and crumpled paper background
+
+<img width="941" height="335" alt="image" src="https://github.com/user-attachments/assets/001a9349-69b4-4bb6-ab77-a0c143047b79" />
+
 
 ## Tech Stack
 
