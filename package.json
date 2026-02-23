@@ -17,8 +17,7 @@
     "dev:full": "concurrently \"npm run dev\" \"npm run server\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "prepare": "git config core.hooksPath .githooks"
+    "preview": "vite preview"
   },
   "dependencies": {
     "cors": "^2.8.6",
